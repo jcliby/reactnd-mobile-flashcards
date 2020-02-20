@@ -11,57 +11,59 @@ import {
 } from 'react-native';
 import { connect } from 'react-redux';
 
-import { addDeck } from '../actions';
-import { saveDeck } from '../utils/api';
+import { addCard } from '../actions';
+import { saveCard } from '../utils/api';
 import { orange, yellow, blue, purple, green, white } from '../utils/colors';
-import { createUUID } from '../utils/helpers';
 import BigButton from './BigButton';
 
-class CreateDeck extends Component {
+class CreateCard extends Component {
   state = {
-    deckTitle: ''
+    question: '',
+    answer: ''
   };
 
   submit = () => {
-    const { deckTitle } = this.state;
-    const { dispatch } = this.props;
-    const id = createUUID();
+    const { question, answer } = this.state;
+    const { dispatch, deckId } = this.props;
 
-    if (deckTitle === '') {
-      alert('Give your deck a name!');
+    if (question === '' || answer === '') {
+      alert('Please provide a Question and Answer!');
       return;
     }
 
-    const newDeck = {
-      id,
-      title: deckTitle.trim(),
-      cards: []
+    const newCard = {
+      question: question,
+      answer: answer
     };
 
-    dispatch(addDeck({ [id]: newDeck }));
+    dispatch(addCard(deckId, newCard));
 
     this.setState(() => ({
-      deckTitle: ''
+      question: '',
+      answer: ''
     }));
 
-    saveDeck(id, newDeck);
+    saveCard(deckId, newCard);
   };
 
   render() {
-    const { deckTitle } = this.state;
-
     return (
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <KeyboardAvoidingView style={styles.container}>
           <View style={styles.center}>
             <TextInput
-              style={styles.textInput}
-              defaultValue={'New Deck'}
-              onChangeText={value => this.setState({ deckTitle: value })}
+              style={[styles.textInput, { borderColor: blue }]}
+              defaultValue={'Question'}
+              onChangeText={value => this.setState({ question: value })}
+            />
+            <TextInput
+              style={[styles.textInput, { borderColor: yellow }]}
+              defaultValue={'Answer'}
+              onChangeText={value => this.setState({ answer: value })}
             />
           </View>
           <View style={styles.bottom}>
-            <BigButton onPress={this.submit} color={blue} text={'Create'} />
+            <BigButton onPress={this.submit} color={purple} text={'Create'} />
           </View>
         </KeyboardAvoidingView>
       </TouchableWithoutFeedback>
@@ -73,20 +75,20 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'stretch',
-    backgroundColor: yellow
+    backgroundColor: green
   },
   textInput: {
     width: '85%',
     fontFamily: 'Futura',
     fontSize: 40,
     borderBottomWidth: 5,
-    borderColor: orange,
-    marginTop: 250
+    marginTop: 100
   },
   center: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    marginTop: 100
   },
   bottom: {
     flex: 1,
@@ -94,4 +96,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default connect()(CreateDeck);
+export default connect()(CreateCard);

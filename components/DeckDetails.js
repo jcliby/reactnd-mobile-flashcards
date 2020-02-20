@@ -11,13 +11,10 @@ import {
 } from 'react-native';
 import { connect } from 'react-redux';
 
-import { addDeck } from '../actions';
-import { saveDeck } from '../utils/api';
 import { orange, yellow, blue, purple, green, white } from '../utils/colors';
-import { createUUID } from '../utils/helpers';
 import BigButton from './BigButton';
 
-class CreateDeck extends Component {
+class DeckDetails extends Component {
   state = {
     deckTitle: ''
   };
@@ -53,15 +50,19 @@ class CreateDeck extends Component {
     return (
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <KeyboardAvoidingView style={styles.container}>
+          <View style={styles.top}>
+            <BigButton onPress={this.submit} color={green} text={'Add Card'} />
+          </View>
           <View style={styles.center}>
-            <TextInput
-              style={styles.textInput}
-              defaultValue={'New Deck'}
-              onChangeText={value => this.setState({ deckTitle: value })}
-            />
+            <Text style={styles.deckTitle}>Title</Text>
+            <Text style={styles.cardTotal}>Cards</Text>
           </View>
           <View style={styles.bottom}>
-            <BigButton onPress={this.submit} color={blue} text={'Create'} />
+            <BigButton
+              onPress={this.submit}
+              color={orange}
+              text={'Start Quiz'}
+            />
           </View>
         </KeyboardAvoidingView>
       </TouchableWithoutFeedback>
@@ -73,15 +74,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'stretch',
-    backgroundColor: yellow
+    backgroundColor: purple
   },
-  textInput: {
-    width: '85%',
+  deckTitle: {
     fontFamily: 'Futura',
-    fontSize: 40,
-    borderBottomWidth: 5,
-    borderColor: orange,
-    marginTop: 250
+    fontSize: 60
+  },
+  cardTotal: {
+    fontFamily: 'Futura'
   },
   center: {
     flex: 1,
@@ -91,7 +91,11 @@ const styles = StyleSheet.create({
   bottom: {
     flex: 1,
     justifyContent: 'flex-end'
+  },
+  top: {
+    flex: 1,
+    justifyContent: 'flex-start'
   }
 });
 
-export default connect()(CreateDeck);
+export default connect()(DeckDetails);

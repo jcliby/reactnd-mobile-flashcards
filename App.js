@@ -4,8 +4,8 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { NavigationContainer } from '@react-navigation/native';
 
-import DeckList from './components/DeckList';
 import reducer from './reducers';
+import DeckList from './components/DeckList';
 import CreateDeck from './components/CreateDeck';
 import CreateCard from './components/CreateCard';
 import DeckDetails from './components/DeckDetails';
@@ -15,7 +15,7 @@ export default class App extends Component {
     return (
       <Provider store={createStore(reducer)}>
         <NavigationContainer>
-          <SafeAreaView style={{ flex: 1 }}>
+          <SafeAreaView style={{ flex: 1, backgroundColor: '#000000' }}>
             <DeckDetails />
           </SafeAreaView>
         </NavigationContainer>

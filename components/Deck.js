@@ -1,11 +1,5 @@
 import React, { Component } from 'react';
-import {
-  View,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  SafeAreaView
-} from 'react-native';
+import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
 
 import { white } from '../utils/colors';
 
@@ -35,12 +29,12 @@ const styles = StyleSheet.create({
   },
   deckTitle: {
     fontFamily: 'Futura',
-    fontSize: 40,
-    color: white
+    letterSpacing: 7,
+    fontSize: 35
   },
   cardTotal: {
-    fontFamily: 'Futura',
-    color: white
+    fontFamily: 'Futura-MediumItalic',
+    fontSize: 10
   }
 });
 

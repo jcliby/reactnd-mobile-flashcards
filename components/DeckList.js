@@ -8,12 +8,23 @@ import {
 } from 'react-native';
 import { connect } from 'react-redux';
 
-import { orange, yellow, blue, purple, green, white } from '../utils/colors';
+import {
+  orange,
+  yellow,
+  blue,
+  purple,
+  green,
+  white,
+  pink,
+  grey,
+  beige
+} from '../utils/colors';
 import Deck from './Deck';
 import { getDecks } from '../utils/api';
 import { receiveDecks } from '../actions';
+import BigButton from './BigButton';
 
-const colors = [orange, yellow, blue, purple, green];
+const colors = [beige, pink, green, grey, orange, white, yellow];
 
 class DeckList extends Component {
   state = {
@@ -61,6 +72,7 @@ class DeckList extends Component {
           )}
           keyExtractor={item => item.key}
         />
+        <BigButton color={blue} text={'Create Deck'} />
       </View>
     );
   }

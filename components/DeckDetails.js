@@ -11,7 +11,15 @@ import {
 } from 'react-native';
 import { connect } from 'react-redux';
 
-import { orange, yellow, blue, purple, green, white } from '../utils/colors';
+import {
+  orange,
+  yellow,
+  blue,
+  purple,
+  green,
+  white,
+  pink
+} from '../utils/colors';
 import BigButton from './BigButton';
 
 class DeckDetails extends Component {
@@ -51,16 +59,16 @@ class DeckDetails extends Component {
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <KeyboardAvoidingView style={styles.container}>
           <View style={styles.top}>
-            <BigButton onPress={this.submit} color={green} text={'Add Card'} />
+            <BigButton onPress={this.submit} color={blue} text={'Add Card'} />
           </View>
           <View style={styles.center}>
             <Text style={styles.deckTitle}>Title</Text>
-            <Text style={styles.cardTotal}>Cards</Text>
+            <Text style={styles.cardTotal}>0 Cards</Text>
           </View>
           <View style={styles.bottom}>
             <BigButton
               onPress={this.submit}
-              color={orange}
+              color={yellow}
               text={'Start Quiz'}
             />
           </View>
@@ -74,14 +82,16 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'stretch',
-    backgroundColor: purple
+    backgroundColor: pink
   },
   deckTitle: {
     fontFamily: 'Futura',
-    fontSize: 60
+    fontSize: 80,
+    letterSpacing: 15
   },
   cardTotal: {
-    fontFamily: 'Futura'
+    fontFamily: 'Futura-MediumItalic',
+    fontSize: 20
   },
   center: {
     flex: 1,

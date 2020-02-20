@@ -27,6 +27,75 @@ const dummyData = {
           'The combination of a function and the lexical environment within which that function was declared.'
       }
     ]
+  },
+  '6ea239a2-baeb-48a9-804f-b7de80bbfd5a': {
+    id: '6ea239a2-baeb-48a9-804f-b7de80bbfd5a',
+    title: 'Java',
+    cards: [
+      {
+        question: 'What is React?',
+        answer: 'A library for managing user interfaces'
+      },
+      {
+        question: 'Where do you make Ajax requests in React?',
+        answer: 'The componentDidMount lifecycle event'
+      },
+      {
+        question: 'What is React?',
+        answer: 'A library for managing user interfaces'
+      },
+      {
+        question: 'Where do you make Ajax requests in React?',
+        answer: 'The componentDidMount lifecycle event'
+      }
+    ]
+  },
+  '115274c2-bf11-41fb-b3a6-5cef5df63a27': {
+    id: '115274c2-bf11-41fb-b3a6-5cef5df63a27',
+    title: 'Node.js',
+    cards: [
+      {
+        question: 'What is a closure?',
+        answer:
+          'The combination of a function and the lexical environment within which that function was declared.'
+      }
+    ]
+  },
+  '71e21a7e-fbca-4740-b3e1-a1efd383e2f7': {
+    id: '71e21a7e-fbca-4740-b3e1-a1efd383e2f7',
+    title: 'Python',
+    cards: [
+      {
+        question: 'What is React?',
+        answer: 'A library for managing user interfaces'
+      },
+      {
+        question: 'Where do you make Ajax requests in React?',
+        answer: 'The componentDidMount lifecycle event'
+      }
+    ]
+  },
+  'bf0528ba-703e-4099-a9e6-8a48bb5b3ecd': {
+    id: 'bf0528ba-703e-4099-a9e6-8a48bb5b3ecd',
+    title: 'React Native',
+    cards: [
+      {
+        question: 'What is a closure?',
+        answer:
+          'The combination of a function and the lexical environment within which that function was declared.'
+      }
+    ]
+  },
+  '0157efdd-99f5-462f-a841-aaba50708b7d': {
+    id: '0157efdd-99f5-462f-a841-aaba50708b7d',
+    title: 'Google Cloud',
+    cards: [
+      {
+        question: 'What is a closure?',
+        answer:
+          'The combination of a function and the lexical environment within which that function was declared.'
+      }
+    ]
   }
 };
 

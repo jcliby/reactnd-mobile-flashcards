@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'stretch',
-    backgroundColor: green
+    backgroundColor: orange
   },
   textInput: {
     width: '85%',

@@ -10,9 +10,15 @@ export function receiveDecks(decks) {
 }
 
 export function addDeck(deck) {
-  type: ADD_DECK, deck;
+  return {
+    type: ADD_DECK,
+    deck
+  };
 }
 
 export function addCard(card) {
-  type: ADD_CARD, deckId, card;
+  return {
+    type: ADD_CARD,
+    card
+  };
 }

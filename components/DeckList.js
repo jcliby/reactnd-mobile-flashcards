@@ -4,7 +4,6 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
-  SafeAreaView,
   FlatList
 } from 'react-native';
 import { connect } from 'react-redux';
@@ -52,7 +51,7 @@ class DeckList extends Component {
     );
 
     return (
-      <SafeAreaView style={styles.container}>
+      <View style={styles.container}>
         <FlatList
           data={Object.keys(decks).map(id => {
             return { key: id };
@@ -62,7 +61,7 @@ class DeckList extends Component {
           )}
           keyExtractor={item => item.key}
         />
-      </SafeAreaView>
+      </View>
     );
   }
 }

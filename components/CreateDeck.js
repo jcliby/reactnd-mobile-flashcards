@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import {
-  Text,
   TextInput,
   KeyboardAvoidingView,
-  TouchableOpacity,
   StyleSheet,
   View,
   Keyboard,
@@ -13,7 +11,7 @@ import { connect } from 'react-redux';
 
 import { addDeck } from '../actions';
 import { saveDeck } from '../utils/api';
-import { orange, yellow, blue, purple, green, white } from '../utils/colors';
+import { orange, yellow, blue } from '../utils/colors';
 import { createUUID } from '../utils/helpers';
 import BigButton from './BigButton';
 
@@ -80,16 +78,15 @@ const styles = StyleSheet.create({
     fontFamily: 'Futura',
     fontSize: 40,
     borderBottomWidth: 5,
-    borderColor: orange,
-    marginTop: 250
+    borderColor: orange
   },
   center: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    paddingBottom: 30
   },
   bottom: {
-    flex: 1,
     justifyContent: 'flex-end'
   }
 });

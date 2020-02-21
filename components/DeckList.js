@@ -1,25 +1,18 @@
 import React, { Component } from 'react';
-import {
-  View,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  FlatList
-} from 'react-native';
+import { View, StyleSheet, Text, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 
 import {
   orange,
   yellow,
   blue,
-  purple,
   green,
   white,
   pink,
   grey,
   beige
 } from '../utils/colors';
-import Deck from './Deck';
+import DeckListItem from './DeckListItem';
 import { getDecks } from '../utils/api';
 import { receiveDecks } from '../actions';
 import BigButton from './BigButton';
@@ -68,11 +61,16 @@ class DeckList extends Component {
             return { key: id };
           })}
           renderItem={({ item, index }) => (
-            <Deck deck={decks[item.key]} color={backgroundColors[index]} />
+            <DeckListItem
+              deck={decks[item.key]}
+              color={backgroundColors[index]}
+            />
           )}
           keyExtractor={item => item.key}
         />
-        <BigButton color={blue} text={'Create Deck'} />
+        <View style={styles.bottom}>
+          <BigButton color={blue} text={'Create Deck'} />
+        </View>
       </View>
     );
   }
@@ -81,6 +79,9 @@ class DeckList extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1
+  },
+  bottom: {
+    justifyContent: 'flex-end'
   }
 });
 

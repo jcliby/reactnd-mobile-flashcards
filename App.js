@@ -9,6 +9,7 @@ import DeckList from './components/DeckList';
 import CreateDeck from './components/CreateDeck';
 import CreateCard from './components/CreateCard';
 import DeckDetails from './components/DeckDetails';
+import Quiz from './components/Quiz';
 
 export default class App extends Component {
   render() {
@@ -16,7 +17,7 @@ export default class App extends Component {
       <Provider store={createStore(reducer)}>
         <NavigationContainer>
           <SafeAreaView style={{ flex: 1, backgroundColor: '#000000' }}>
-            <DeckDetails />
+            <Quiz />
           </SafeAreaView>
         </NavigationContainer>
       </Provider>

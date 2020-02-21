@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import {
-  Text,
   TextInput,
   KeyboardAvoidingView,
-  TouchableOpacity,
   StyleSheet,
   View,
   Keyboard,
@@ -13,7 +11,7 @@ import { connect } from 'react-redux';
 
 import { addCard } from '../actions';
 import { saveCard } from '../utils/api';
-import { orange, yellow, blue, purple, green, white } from '../utils/colors';
+import { orange, yellow, blue, purple } from '../utils/colors';
 import BigButton from './BigButton';
 
 class CreateCard extends Component {
@@ -82,16 +80,15 @@ const styles = StyleSheet.create({
     fontFamily: 'Futura',
     fontSize: 40,
     borderBottomWidth: 5,
-    marginTop: 100
+    marginTop: 50
   },
   center: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: 100
+    paddingBottom: 80
   },
   bottom: {
-    flex: 1,
     justifyContent: 'flex-end'
   }
 });

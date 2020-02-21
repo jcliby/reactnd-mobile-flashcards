@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
 
-import { white } from '../utils/colors';
-
-class Deck extends Component {
+class DeckListItem extends Component {
   render() {
     const { deck, color } = this.props;
     return (
@@ -38,4 +36,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default Deck;
+export default DeckListItem;

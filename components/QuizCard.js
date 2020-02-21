@@ -45,12 +45,12 @@ const styles = StyleSheet.create({
     backgroundColor: beige
   },
   questionText: {
-    fontFamily: 'Futura',
+    fontFamily: Platform.OS === 'ios' ? 'Futura' : 'sans-serif',
     fontSize: 30,
     textAlign: 'left'
   },
   answerText: {
-    fontFamily: 'Futura',
+    fontFamily: Platform.OS === 'ios' ? 'Futura' : 'sans-serif',
     fontSize: 25,
     textAlign: 'right',
     color: blue

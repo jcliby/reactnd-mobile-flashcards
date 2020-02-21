@@ -43,12 +43,12 @@ const styles = StyleSheet.create({
     backgroundColor: pink
   },
   deckTitle: {
-    fontFamily: 'Futura',
+    fontFamily: Platform.OS === 'ios' ? 'Futura' : 'sans-serif',
     fontSize: 80,
     letterSpacing: 15
   },
   cardTotal: {
-    fontFamily: 'Futura-MediumItalic',
+    fontFamily: Platform.OS === 'ios' ? 'Futura-MediumItalic' : 'sans-serif',
     fontSize: 20
   },
   center: {

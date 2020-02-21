@@ -45,12 +45,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   text: {
-    fontFamily: 'Futura',
+    fontFamily: Platform.OS === 'ios' ? 'Futura' : 'sans-serif',
     fontSize: 40,
     color: white
   },
   scoreText: {
-    fontFamily: 'Futura-MediumItalic',
+    fontFamily: Platform.OS === 'ios' ? 'Futura-MediumItalic' : 'sans-serif',
     fontSize: 10,
     color: white
   }

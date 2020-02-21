@@ -26,12 +26,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   deckTitle: {
-    fontFamily: 'Futura',
+    fontFamily: Platform.OS === 'ios' ? 'Futura' : 'sans-serif',
     letterSpacing: 7,
     fontSize: 35
   },
   cardTotal: {
-    fontFamily: 'Futura-MediumItalic',
+    fontFamily: Platform.OS === 'ios' ? 'Futura-MediumItalic' : 'sans-serif',
     fontSize: 10
   }
 });

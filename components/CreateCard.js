@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
   },
   textInput: {
     width: '85%',
-    fontFamily: 'Futura',
+    fontFamily: Platform.OS === 'ios' ? 'Futura' : 'sans-serif',
     fontSize: 40,
     borderBottomWidth: 5,
     marginTop: 50

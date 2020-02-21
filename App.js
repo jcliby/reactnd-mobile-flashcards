@@ -16,8 +16,14 @@ export default class App extends Component {
     return (
       <Provider store={createStore(reducer)}>
         <NavigationContainer>
-          <SafeAreaView style={{ flex: 1, backgroundColor: '#000000' }}>
-            <Quiz />
+          <SafeAreaView
+            style={{
+              flex: 1,
+              backgroundColor: '#000000',
+              paddingTop: Platform.OS === 'ios' ? 0 : 25
+            }}
+          >
+            <DeckDetails />
           </SafeAreaView>
         </NavigationContainer>
       </Provider>

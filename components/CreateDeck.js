@@ -8,6 +8,7 @@ import {
   TouchableWithoutFeedback
 } from 'react-native';
 import { connect } from 'react-redux';
+import { StackActions } from '@react-navigation/native';
 
 import { addDeck } from '../actions';
 import { saveDeck } from '../utils/api';
@@ -42,14 +43,15 @@ class CreateDeck extends Component {
       deckTitle: ''
     }));
 
-    this.navigateToHome();
+    this.navigateToDeck(id);
 
     saveDeck(newDeck);
   };
 
-  navigateToHome = () => {
+  navigateToDeck = id => {
     const { navigation } = this.props;
-    navigation.navigate('Home');
+
+    navigation.dispatch(StackActions.replace('DeckDetails', { id: id }));
   };
 
   render() {

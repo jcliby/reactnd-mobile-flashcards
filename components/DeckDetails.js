@@ -11,6 +11,10 @@ const DeckDetails = ({ id, title, cardTotal, navigation }) => {
   };
 
   handleStartQuiz = () => {
+    if (cardTotal === 0) {
+      alert('No questions available!');
+      return;
+    }
     navigation.navigate('Quiz', { id: id });
   };
 

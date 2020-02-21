@@ -7,6 +7,7 @@ import ScoreButtons from './ScoreButtons';
 import QuizCard from './QuizCard';
 import ScoreCard from './ScoreCard';
 import BigButton from './BigButton';
+import { clearLocalNotification, setLocalNotification } from '../utils/helpers';
 
 class Quiz extends Component {
   state = {
@@ -16,18 +17,24 @@ class Quiz extends Component {
     showAnswer: false
   };
 
+  componentDidMount() {
+    clearLocalNotification().then(setLocalNotification);
+  }
+
   handleAnswer = result => {
     if (result === 'correct') {
       this.setState(prevState => ({
         correct: prevState.correct + 1,
-        qIndex: prevState.qIndex + 1
+        qIndex: prevState.qIndex + 1,
+        showAnswer: false
       }));
     }
 
     if (result === 'incorrect') {
       this.setState(prevState => ({
         incorrect: prevState.incorrect + 1,
-        qIndex: prevState.qIndex + 1
+        qIndex: prevState.qIndex + 1,
+        showAnswer: false
       }));
     }
   };

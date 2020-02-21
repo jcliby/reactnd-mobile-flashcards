@@ -1,19 +1,19 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
 
-class DeckListItem extends Component {
-  render() {
-    const { deck, color } = this.props;
-    return (
-      <View style={styles.container}>
-        <TouchableOpacity style={[styles.deck, { backgroundColor: color }]}>
-          <Text style={styles.deckTitle}>{deck.title}</Text>
-          <Text style={styles.cardTotal}>{deck.cards.length} Cards</Text>
-        </TouchableOpacity>
-      </View>
-    );
-  }
-}
+const DeckListItem = ({ deck, color, onPress }) => {
+  return (
+    <View style={styles.container}>
+      <TouchableOpacity
+        style={[styles.deck, { backgroundColor: color }]}
+        onPress={() => onPress(deck.id)}
+      >
+        <Text style={styles.deckTitle}>{deck.title}</Text>
+        <Text style={styles.cardTotal}>{deck.cards.length} Cards</Text>
+      </TouchableOpacity>
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {

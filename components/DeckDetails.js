@@ -5,36 +5,38 @@ import { connect } from 'react-redux';
 import { yellow, blue, pink } from '../utils/colors';
 import BigButton from './BigButton';
 
-class DeckDetails extends Component {
-  submitAddCard = () => {};
+const DeckDetails = ({ id, title, cardTotal, navigation }) => {
+  handleCreateCard = () => {
+    navigation.navigate('CreateCard', { id: id });
+  };
 
-  submitStartQuiz = () => {};
+  handleStartQuiz = () => {
+    navigation.navigate('Quiz', { id: id });
+  };
 
-  render() {
-    return (
-      <View style={styles.container}>
-        <View style={styles.top}>
-          <BigButton
-            onPress={this.submitAddCard}
-            color={blue}
-            text={'Create Card'}
-          />
-        </View>
-        <View style={styles.center}>
-          <Text style={styles.deckTitle}>Title</Text>
-          <Text style={styles.cardTotal}>0 Cards</Text>
-        </View>
-        <View style={styles.bottom}>
-          <BigButton
-            onPress={this.submitStartQuiz}
-            color={yellow}
-            text={'Start Quiz'}
-          />
-        </View>
+  return (
+    <View style={styles.container}>
+      <View style={styles.top}>
+        <BigButton
+          onPress={() => handleCreateCard()}
+          color={blue}
+          text={'Create Card'}
+        />
       </View>
-    );
-  }
-}
+      <View style={styles.center}>
+        <Text style={styles.deckTitle}>{title}</Text>
+        <Text style={styles.cardTotal}>{`${cardTotal} Cards`}</Text>
+      </View>
+      <View style={styles.bottom}>
+        <BigButton
+          onPress={() => handleStartQuiz()}
+          color={yellow}
+          text={'Start Quiz'}
+        />
+      </View>
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -44,8 +46,8 @@ const styles = StyleSheet.create({
   },
   deckTitle: {
     fontFamily: Platform.OS === 'ios' ? 'Futura' : 'sans-serif',
-    fontSize: 40,
-    letterSpacing: 15
+    fontSize: 35,
+    letterSpacing: 10
   },
   cardTotal: {
     fontFamily: Platform.OS === 'ios' ? 'Futura-MediumItalic' : 'sans-serif',
@@ -64,4 +66,13 @@ const styles = StyleSheet.create({
   }
 });
 
-export default connect()(DeckDetails);
+function mapStateToProps(decks, { route }) {
+  const { id } = route.params;
+  return {
+    id,
+    title: decks[id].title,
+    cardTotal: decks[id].cards.length
+  };
+}
+
+export default connect(mapStateToProps)(DeckDetails);

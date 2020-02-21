@@ -4,11 +4,13 @@ import { connect } from 'react-redux';
 
 import { grey } from '../utils/colors';
 
-const ScoreCard = ({ deckTitle, correct, deckTotal, onPress }) => {
+const ScoreCard = ({ deckTitle, correct, cardTotal }) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.deckTitle}>Javascript</Text>
-      <Text style={styles.cardTotal}>00 %</Text>
+      <Text style={styles.deckTitle}>{deckTitle}</Text>
+      <Text style={styles.cardTotal}>{`${Math.floor(
+        (correct / cardTotal) * 100
+      )} %`}</Text>
     </View>
   );
 };

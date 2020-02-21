@@ -7,17 +7,17 @@ export function getDecks() {
   return AsyncStorage.getItem(FLASHCARDS_STORAGE_KEY).then(formatDeckResults);
 }
 
-export function saveDeck(key, deck) {
+export function saveDeck(deck) {
   return AsyncStorage.mergeItem(
     FLASHCARDS_STORAGE_KEY,
-    JSON.stringify({ [key]: deck })
+    JSON.stringify({ [deck.id]: deck })
   );
 }
 
 export function saveCard(key, card) {
   return AsyncStorage.getItem(FLASHCARDS_STORAGE_KEY).then(results => {
     const decks = JSON.parse(results);
-    decks[key].questions.push(card);
+    decks[key].cards.push(card);
     AsyncStorage.mergeItem(FLASHCARDS_STORAGE_KEY, JSON.stringify(decks));
   });
 }

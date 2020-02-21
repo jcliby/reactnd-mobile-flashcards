@@ -17,7 +17,7 @@ import { getDecks } from '../utils/api';
 import { receiveDecks } from '../actions';
 import BigButton from './BigButton';
 
-const colors = [beige, pink, green, grey, orange, white, yellow];
+const colors = [beige, green, grey, orange, white, yellow];
 
 class DeckList extends Component {
   state = {
@@ -39,6 +39,14 @@ class DeckList extends Component {
     }
 
     return newArr;
+  };
+
+  handleSelectDeck = id => {
+    this.props.navigation.navigate('DeckDetails', { id: id });
+  };
+
+  handleCreateDeck = () => {
+    this.props.navigation.navigate('CreateDeck');
   };
 
   render() {
@@ -64,12 +72,17 @@ class DeckList extends Component {
             <DeckListItem
               deck={decks[item.key]}
               color={backgroundColors[index]}
+              onPress={this.handleSelectDeck}
             />
           )}
           keyExtractor={item => item.key}
         />
         <View style={styles.bottom}>
-          <BigButton color={blue} text={'Create Deck'} />
+          <BigButton
+            color={blue}
+            text={'Create Deck'}
+            onPress={this.handleCreateDeck}
+          />
         </View>
       </View>
     );

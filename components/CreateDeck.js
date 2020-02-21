@@ -36,13 +36,20 @@ class CreateDeck extends Component {
       cards: []
     };
 
-    dispatch(addDeck({ [id]: newDeck }));
+    dispatch(addDeck(newDeck));
 
     this.setState(() => ({
       deckTitle: ''
     }));
 
-    saveDeck(id, newDeck);
+    this.navigateToHome();
+
+    saveDeck(newDeck);
+  };
+
+  navigateToHome = () => {
+    const { navigation } = this.props;
+    navigation.navigate('Home');
   };
 
   render() {

@@ -12,7 +12,7 @@ const ScoreButtons = ({ onPress, score }) => {
     onPress('incorrect');
   };
 
-  const { correct, incorrect, deckSize } = score;
+  const { correct, incorrect, cardTotal } = score;
 
   return (
     <View style={styles.container}>
@@ -21,7 +21,7 @@ const ScoreButtons = ({ onPress, score }) => {
         onPress={handleCorrect}
       >
         <Text style={styles.text}>Correct</Text>
-        <Text style={styles.scoreText}>{`${correct} / ${deckSize}`}</Text>
+        <Text style={styles.scoreText}>{`${correct} / ${cardTotal}`}</Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={[styles.subContainer, { backgroundColor: pink }]}

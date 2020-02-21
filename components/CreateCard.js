@@ -22,7 +22,7 @@ class CreateCard extends Component {
 
   submit = () => {
     const { question, answer } = this.state;
-    const { dispatch, deckId } = this.props;
+    const { dispatch, route } = this.props;
 
     if (question === '' || answer === '') {
       alert('Please provide a Question and Answer!');
@@ -34,14 +34,21 @@ class CreateCard extends Component {
       answer: answer
     };
 
-    dispatch(addCard(deckId, newCard));
+    dispatch(addCard(route.params.id, newCard));
 
     this.setState(() => ({
       question: '',
       answer: ''
     }));
 
-    saveCard(deckId, newCard);
+    this.navigateToCard();
+
+    saveCard(route.params.id, newCard);
+  };
+
+  navigateToCard = () => {
+    const { navigation, route } = this.props;
+    navigation.navigate('DeckDetails', { id: route.params.id });
   };
 
   render() {

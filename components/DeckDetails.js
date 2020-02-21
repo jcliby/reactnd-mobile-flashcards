@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
   },
   deckTitle: {
     fontFamily: Platform.OS === 'ios' ? 'Futura' : 'sans-serif',
-    fontSize: 80,
+    fontSize: 40,
     letterSpacing: 15
   },
   cardTotal: {

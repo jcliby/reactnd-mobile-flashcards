@@ -4,6 +4,8 @@ import { StyleSheet, View } from 'react-native';
 import { beige } from '../utils/colors';
 import ScoreButtons from './ScoreButtons';
 import QuizCard from './QuizCard';
+import ScoreCard from './ScoreCard';
+import BigButton from './BigButton';
 
 class Quiz extends Component {
   state = {
@@ -12,7 +14,7 @@ class Quiz extends Component {
     incorrect: 0
   };
 
-  onPress = result => {
+  handleAnswer = result => {
     if (result === 'correct') {
       this.setState(prevState => ({
         correct: prevState.correct + 1
@@ -30,17 +32,26 @@ class Quiz extends Component {
     const { inProgress, correct, incorrect } = this.state;
     const deckSize = 10;
 
-    return (
-      <View style={styles.container}>
-        <QuizCard />
-        <View style={styles.bottom}>
-          <ScoreButtons
-            onPress={this.onPress}
-            score={{ correct, incorrect, deckSize }}
-          />
+    if (inProgress === true) {
+      return (
+        <View style={styles.container}>
+          <ScoreCard />
+          <BigButton text={'Restart'} color={beige} />
         </View>
-      </View>
-    );
+      );
+    } else {
+      return (
+        <View style={styles.container}>
+          <QuizCard />
+          <View style={styles.bottom}>
+            <ScoreButtons
+              onPress={this.handleAnswer}
+              score={{ correct, incorrect, deckSize }}
+            />
+          </View>
+        </View>
+      );
+    }
   }
 }
 

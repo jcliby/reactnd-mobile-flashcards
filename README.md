@@ -19,7 +19,7 @@ Pressing the 'Start Quiz' or 'Create Card' button properly routes to the correct
 ![iOS Create Card gif](https://media.giphy.com/media/cP4xZr2HWaHsHPecLE/giphy.gif)
 
 The Quiz view starts with a question from the selected deck. 
-The question is displayed— tapping the background will toggle on/off the answer. 
+The question is displayed— **tapping the background will toggle on/off the answer**. 
 Buttons are included to allow the student to mark their guess as 'Correct' or 'Incorrect' as well as track progress.
 When the last question is answered, a score is displayed. 
 Users can with restart the quiz or 'swipe' to naigate back to the deck view.

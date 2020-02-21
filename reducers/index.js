@@ -13,7 +13,6 @@ export default function decks(state = {}, action) {
         [action.deck.id]: action.deck
       };
     case ADD_CARD:
-      console.log('herro', action);
       return {
         ...state,
         [action.id]: {

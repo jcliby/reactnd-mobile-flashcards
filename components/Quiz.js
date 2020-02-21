@@ -60,8 +60,6 @@ class Quiz extends Component {
 
     const inProgress = qIndex < cardTotal ? true : false;
 
-    console.log(deck);
-
     if (inProgress !== true) {
       return (
         <View style={styles.container}>

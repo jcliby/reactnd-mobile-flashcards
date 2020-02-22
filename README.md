@@ -42,4 +42,4 @@ Because this project was built using React Native an iOS or Android simulator or
 For more info see this [Expo](https://docs.expo.io/versions/v36.0.0/get-started/installation/#2-mobile-app-expo-client-for-ios) guide.
 
 ### Notes
-This app was primary built and tested using an Apple iPhone Xs Max and Motorola Moto G4.
+This app was built and tested using an Apple iPhone Xs Max and Motorola Moto G4.
